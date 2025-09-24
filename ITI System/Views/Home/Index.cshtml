@@ -9,7 +9,10 @@
         <div class="container text-center">
             <h2 class="mb-4">Join our ITI Community</h2>
             <p class="lead mb-4">Thousands of students are already learning and growing with ITI. Don’t miss out!</p>
+@if(User.Identity.IsAuthenticated==false)
+{
             <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg px-4">Register Now</a>
+}
         </div>
     </section>
 }
