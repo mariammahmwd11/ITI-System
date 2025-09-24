@@ -1,0 +1,42 @@
+﻿@model List<Department>
+
+@{
+    ViewData["Title"] = "view depts";
+}   
+@section option_section {
+<p>View Our Departments</p>
+}
+<div class="card-body p-4">
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-primary text-center">
+            <tr>
+                @if(User.IsInRole("Admin"))
+                {
+                    <th>ID</th>
+                }
+                <th>Name</th>
+                <th>Manager</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>@item.ID</td>
+                    }
+                    <td>@item.Name</td>
+                    <td>@item.Manager</td>
+
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Add" asp-controller="Dept" class="btn btn-primary btn-lg">Add New</a>
+    }
+</div>

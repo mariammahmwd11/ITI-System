@@ -1,0 +1,33 @@
+﻿@model crsesult_traineeInfo
+@{
+    ViewData["Title"] = "Trainee Result";
+}
+
+@section option_section {
+        Your Result
+}
+
+<table class="table table-bordered">
+    <thead class="table-primary text-center">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Course Name</th>
+       
+        <th>Degree</th>
+        <th>Max Degree</th>
+
+        <th>State</th>
+        
+    </tr>
+    </thead>
+    <tr class=" @Model.color">
+        <td>@Model.traineeid</td>
+        <td>@Model.TraineeName</td>
+        <td>@Model.CourseName</td>
+        <td>@Model.degree</td>
+		<td>@Model.MaxDegree</td>
+        <td>@Model.state</td>
+
+    </tr>
+</table>

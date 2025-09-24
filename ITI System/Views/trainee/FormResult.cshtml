@@ -1,0 +1,30 @@
+﻿@model crsResult
+@{
+    ViewData["Title"] = "search for result";
+}
+
+@section option_section {
+        find your Result :)
+}
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<div class="card shadow-lg p-4 rounded-4" style="width: 400px; background-color: #ffffff;">
+        <h2 class="text-center mb-4 text-primary">Result</h2>
+
+<form asp-action="showResult" asp-controller="trainee" method="post">
+    <label asp-for="traineeId"></label>
+    <input asp-for="traineeId" class="form-control" />
+    <span asp-validation-for="traineeId" class="text-danger"></span>
+	<br />
+    <label asp-for="crsId"></label>
+    <input asp-for="crsId" class="form-control" />
+    <span asp-validation-for="crsId" class="text-danger"></span>
+	<br />
+    <input type="submit" class="btn btn-primary" value="Show result" />
+</form>
+</div></div>
+
+@section scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,44 @@
+﻿@model listdepartment_listcrs_instructor
+@{
+	ViewData["Title"] = "Add New Instructor";
+	
+	
+
+}
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+	<div class="card shadow-lg p-4 rounded-4" style="width: 400px; background-color: #ffffff;">
+		<h2 class="text-center mb-4 text-primary">New Inst</h2>
+
+<form asp-action="Savenew" asp-controller="Instructor" >
+	
+<div>
+	
+		<label asp-for="Name"></label>
+		<input class="form-check form-control" asp-for="Name" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+
+		<label asp-for="salary"></label>
+		<input class="form-check form-control" asp-for="salary"/>
+
+		<label asp-for ="imageUrl">
+			</label>
+		<input class="form-check form-control" asp-for="imageUrl"/>
+		<span asp-validation-for="imageUrl"></span>
+
+			<label asp-for ="address">
+				</label>
+		<input class="form-check form-control" asp-for="address" />
+
+		<label asp-for="deptId"></label>
+		<select class="form-check form-control" asp-for="deptId" asp-items="@Model.deptoptions" ></select>
+
+		<label asp-for="crsId"></label>
+		<select class="form-check form-control" asp-for="crsId" asp-items="@Model.crsoptions"></select>
+
+		<br />
+		<input type="submit" value="Save" class="btn btn-success" />
+
+</div>
+</form>
+</div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model Course
+@{
+	ViewData["Title"] = "Add Course";
+    SelectList deptoption = new SelectList(ViewBag.depts,"ID","Name");
+}
+@* <div asp-validation-summary="All"></div> *@
+<div class="card-body p-4">
+    <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+        <div class="card shadow-lg p-4 rounded-4" style="width: 400px; background-color: #ffffff;">
+            
+                    <h2 class="text-center mb-4 text-primary">Add Course</h2>
+    <form asp-action="SaveAdd" asp-controller="Course" method="post">
+       @*  <div class="mb-3">
+            <label class="form-label" asp-for="Id"></label>
+            <input asp-for="Id" class="form-control">
+        </div> *@
+        <div class="mb-3">
+            <label class="form-label" asp-for="Name"></label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="degree"></label>
+            <input asp-for="degree" class="form-control">
+            <span asp-validation-for="degree" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="minDegree"></label>
+            <input  class="form-control" asp-for="minDegree">
+            <span asp-validation-for="minDegree" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="hours"></label>
+            <input class="form-control" asp-for="hours">
+            <span asp-validation-for="hours" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="deptId"></label>
+            <select class="form-control" asp-for="deptId" asp-items="deptoption"><option value="0">---Select Department---</option></select>
+            <span asp-validation-for="deptId" class="text-danger"></span>
+
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+    </form>
+    </div>
+    </div>
+    
+    @section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }
+</div>

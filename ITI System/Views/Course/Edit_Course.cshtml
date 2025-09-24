@@ -1,0 +1,45 @@
+﻿@model Course
+@{
+	ViewData["Title"] = "Edit Course";
+	SelectList deptoption = new SelectList(ViewBag.depts, "ID", "Name");
+}
+@section scripts{
+	<script src="~/lib/jquery/dist/jquery.min.js"></<script></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+<div class="card-body p-4">
+	<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+		<div class="card shadow-lg p-4 rounded-4" style="width: 400px; background-color: #ffffff;">
+			<h2 class="text-center mb-4 text-primary">Edit Details</h2>
+	<form asp-action="saveEdit" asp-controller="Course" asp-route-Id="@Model.Id" method="post">
+		<input type="hidden" asp-for="Id" />
+	<label asp-for="Name" class="form-check form-label	"></label>
+		<input asp-for="Name" value="@Model.Name"  class="form-control" />
+		<span asp-validation-for="Name"  class="text-danger"></span>
+
+		<label asp-for="degree" class="form-check form-label	"></label>
+		<input asp-for="degree" class="form-control" />
+		<span asp-validation-for="degree" class="text-danger"></span>
+
+		<label asp-for="minDegree" class="form-check form-label	"></label>
+		<input asp-for="minDegree" class="form-control" />
+		<span asp-validation-for="minDegree" class="text-danger"></span>
+
+		<label asp-for="hours" class="form-check form-label	"></label>
+		<input asp-for="hours" class="form-control" />
+		<span asp-validation-for="hours" class="text-danger"></span>
+
+		<label asp-for="deptId" class="form-check form-label	"></label>
+		<select class="form-control" asp-for="deptId" asp-items="deptoption"><option value="0">---Select Department---</option></select>
+		<span asp-validation-for="deptId" class="text-danger"></span>
+		<div class="d-grid">
+			<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+			</div>
+		
+
+</form>
+</div>
+</div>
+</div>

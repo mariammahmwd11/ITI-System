@@ -1,0 +1,34 @@
+﻿@model List<crsResult>
+
+@{
+    ViewData["Title"] = "Course Results";
+}
+
+<h2>Course Results</h2>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-primary text-center">
+        <tr>
+            <th>Trainee ID</th>
+            <th>Trainee Name</th>
+            <th>Course Name</th>
+            <th>Degree</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var state = item.degree >= item.course.minDegree ? "Passed" : "Failed";
+            var color = item.degree >= item.course.minDegree ? "table-success" : "table-danger";
+
+            <tr class="@color">
+                <td>@item.traineeId</td>
+                <td>@item.trainee?.Name</td>
+                <td>@item.course?.Name</td>
+                <td>@item.degree</td>
+                <td>@state</td>
+            </tr>
+        }
+    </tbody>
+</table>

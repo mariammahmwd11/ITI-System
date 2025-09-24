@@ -1,0 +1,60 @@
+﻿@model listTrainee_listcourse
+@{
+	ViewData["Title"] = "Show Trainees";
+
+}
+@section option_section {
+All Trainees
+}
+<table class="table table-bordered table-hover align-middle">
+	<thead class="table-primary text-center">
+	<tr>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Photo</td>
+		<td>Address</td>
+		<td>Dept</td>
+		<td>Dept ID</td>
+		<td>Courses Names</td>
+		<td>Courses IDs</td>
+			<th>Results</th>
+		
+
+	</tr>
+	</thead>
+	@foreach(var item in Model.list)
+	{
+		<tr>
+			<td>@item.Id</td>
+			<td>@item.Name</td>
+			<td><a href="/trainee images/@item.imageUrl"></a></td>
+			<td>@item.address</td>
+			<td>@item.department.Name</td>
+			<td>@item.deptId</td>
+			<td>
+				<ul>
+					@foreach (var c in Model.list2)
+					{
+						if (c.traineeId == item.Id)
+						{<li>@c.course.Name</li>}
+						
+					}
+				</ul>
+
+			</td>
+			<td>
+				<ul>
+					@foreach (var d in Model.list2)
+					{
+						if (d.traineeId == item.Id)
+						{<li>@d.crsId</li>}
+						
+					}
+				</ul>
+				</td>
+			<td> <a asp-action="showallresult" asp-controller="ShowTraineesController1" asp-route-id="@item.Id">show results</a></td>
+		</tr>
+	
+	}
+	
+</table>

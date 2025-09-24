@@ -1,0 +1,29 @@
+﻿@model Instructor
+@{
+	ViewData["Title"] = "Instructor more Details";
+}
+
+<div class="card-body p-4">
+	<table class="table table-bordered table-hover align-middle">
+		<thead class="table-primary text-center">
+	<tr>
+		<th> Id</th>
+		<th> Name</th>
+		<th> Photo</th>
+		<th> Salary</th>
+		<th>Address</th>
+		<th>course</th>
+		<th>Department</th>
+		
+	</tr>
+	<tr>
+		<td>@(Model.Id-2)</td>
+		<td>@Model.Name</td>
+		<td><img src="/images/@Model.imageUrl" width="=50" height="50"/></td>
+		<td>@Model.salary</td>
+		<td>@Model.address</td>
+		<td>@Model.course.Name</td>
+		<td>@Model.department.Name</td>
+
+	</tr>
+</table>

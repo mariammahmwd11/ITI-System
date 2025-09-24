@@ -1,0 +1,46 @@
+﻿@model ITI_System.Models.Department
+
+@{
+    ViewData["Title"] = "saveAdd";
+}
+
+<hr />
+
+<!-- Container for centering -->
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow-lg p-4 rounded-4" style="width: 400px; background-color: #ffffff;">
+        <h2 class="text-center mb-4 text-primary">Add Dept</h2>
+
+        <form asp-action="saveAdd">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+           
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="Name" class="form-control border-primary-subtle" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+
+           
+            <div class="mb-3">
+                <label asp-for="Manager" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="Manager" class="form-control border-primary-subtle" />
+                <span asp-validation-for="Manager" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary rounded-pill">Create</button>
+            </div>
+
+            <div class="text-center">
+                <a asp-action="Index" class="text-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

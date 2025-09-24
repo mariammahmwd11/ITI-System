@@ -1,0 +1,57 @@
+﻿@model InstAndCrsList
+@{
+	ViewData["Title"] = "Edit Instructor";
+}
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+	<div class="card shadow-lg p-4 rounded-4" style="width: 400px; background-color: #ffffff;">
+		<h2 class="text-center mb-4 text-primary">Edit Details</h2>
+<form  asp-action="SaveEdit" asp-controller="Instructor" asp-route-id="@Model.Id" method="post" class="form-control">
+	<label class="form-label">Name</label>
+	<input type="text" name="Name" value="@Model.Name" class="form-control" />
+	<label class="form-label">salary</label>
+	<input type="number" name="salary" value="@Model.salary" class="form-control" />
+	<label class="form-label">address</label>
+	<input type="text" name="address" value="@Model.address" class="form-control" />
+	<label class="form-label">imageUrl</label>
+	<input type="text" name="imageUrl" value="@Model.imageUrl" class="form-control" />
+	@* <label>crsId</label>
+	<input type="number" name="crsId" value="@Model.crsId" class="form-control" />
+	<label>deptId</label>
+	<input type="number" name="deptId" value="@Model.deptId" class="form-control" /> *@
+	<br />
+	<select name="crsId" class=" form-label">
+		<option>---Select Course---</option>
+		@foreach(var item in Model.courses)
+		{
+			if (Model.crsId == item.Id)
+			{
+				<option selected value="@item.Id">@item.Name</option>
+			}
+			else
+			{
+				<option value="@item.Id">@item.Name</option>
+			}
+		}
+	</select>
+	</<br /><br />
+	<select name="deptId" class=" form-label">
+		<option>---Select Dept---</option>
+		@foreach (var item in Model.departments)
+		{
+			if (Model.deptId == item.ID)
+			{
+				
+				<option selected value="@item.ID">@item.Name</option>
+			}
+			else
+			{
+				<option value="@item.ID">@item.Name</option>
+			}
+		}
+	</select>
+	<br /></<br /><br />
+	<button type="submit" class="btn btn-primary btn-lg">Save</button>
+	
+</form>
+</div>
+</div>

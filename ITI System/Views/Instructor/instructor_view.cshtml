@@ -1,0 +1,48 @@
+﻿@model List<Instructor>
+@{
+	ViewData["Title"] = "Instructor List";
+	Layout = "_MyLayout";
+}
+@section option_section {
+<p>View Our Instructors</p>
+}
+<div class="card-body p-4">
+	<table class="table table-bordered table-hover ">
+		<thead class="table-primary text-center">
+			<tr>
+
+				<th>Ins Name</th>
+				<th>Ins Photo</th>
+				@if(User.IsInRole("Admin"))
+				{
+					<th>Ins ID</th>
+					<th>more details</th>
+					<th>Edit details</th>
+				}
+				
+
+	</tr>
+	</thead>
+	@foreach(var item in Model)
+	{
+		<tr>
+			
+			<td>@item.Name</td>
+				<td><img src="/images/@item.imageUrl" width="100" /></td>
+				@if (User.IsInRole("Admin"))
+				{
+				<td>@(item.Id - 2)</td>
+			<td><a href="https://localhost:7059/Instructor/insdetails?id=@item.Id" class="btn btn-primary">view details</a></td>
+			<td> <a href="/Instructor/Edit/@item.Id " class="btn btn-primary">Edit</a></td>
+				}
+		</tr>
+	}
+
+	
+
+</table>
+@if(User.IsInRole("Admin"))
+				{
+	<a asp-action="Add" asp-controller="Instructor" class="btn btn-primary btn-lg" >Add New</a>
+				}
+</div>
